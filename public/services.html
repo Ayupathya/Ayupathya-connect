@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services – Ayupathya Aahar Pvt Ltd</title>
+  <style>
+    /* ======== BASIC RESETS ======== */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f5fff7; color: #333; }
+
+    /* ======== HEADER ======== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: linear-gradient(90deg, #0A760A, #3DA756);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-area img {
+      height: 60px;
+      border-radius: 10px;
+      background: white;
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-area img:hover { transform: scale(1.05); }
+
+    .brand-text {
+      color: white;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #ffeb99;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ======= Mobile Menu ======= */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        right: 0;
+        top: 70px;
+        width: 100%;
+        text-align: center;
+      }
+      nav ul.show { display: flex; }
+      .menu-toggle { display: block; color: white; font-size: 26px; cursor: pointer; }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle { display: none; }
+    }
+nav ul li a {
+    color: #000000; /* dark green text for mobile menu */
+    font-weight: 600;
+    padding: 12px 0;
+    display: block;
+  }
+  nav ul li a:hover {
+    background: #e0f4e0; /* optional light hover effect */
+  }
+    /* ======== SERVICES SECTION ======== */
+    .services {
+      padding: 2rem 1rem;
+      background-color: #f4fdfc;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #0A760A;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    }
+
+    .service-card h3 { color: #0A760A; margin-bottom: 0.5rem; }
+
+    .highlight-box {
+      background: #e0f2e9;
+      padding: 1rem;
+      border-left: 5px solid #0A760A;
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+
+    .process-step, .testimonial {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-top: 1rem;
+      padding: 1rem;
+    }
+
+    .testimonial { border-left: 5px solid #3DA756; }
+
+    .cta {
+      margin-top: 3rem;
+      padding: 2rem;
+      background-color: #0A760A;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .cta a {
+      background-color: white;
+      color: #0A760A;
+      padding: 0.8rem 1.5rem;
+      margin-top: 1rem;
+      display: inline-block;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .cta a:hover { background-color: #e0f2e9; }
+
+
+    /* ======== FOOTER ======== */
+    .footer {
+      background: linear-gradient(to right, #0A760A, #3DA756);
+      color: white;
+      padding: 40px 20px 20px;
+      text-align: left;
+    }
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .footer-column h3, .footer-column h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+    .footer-column ul { list-style: none; padding: 0; }
+    .footer-column ul li a {
+      color: #f9f9f9;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-column ul li a:hover { color: #ffe082; }
+    .social-icons a img {
+      width: 28px;
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+      border-radius: 50%;
+      background: white;
+      padding: 4px;
+    }
+    .social-icons a img:hover { transform: scale(1.2); }
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 30px;
+      padding-top: 15px;
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+/* ======== WHATSAPP BUTTON ======== */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .whatsapp-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-button img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <img src="image/apalogo.jpg" alt="Ayupathya Logo" />
+        <div class="brand-text">
+          AYUPATHYA
+          <span>Conquering Health</span>
+        </div>
+      </div>
+
+      <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="consultation.html">Consultation</a></li>
+          <li><a href="ayupathyalifestyle.html">Lifestyle Course</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======== SERVICES SECTION ======== -->
+  <main class="services">
+    <h2 class="section-title">Our Ayurvedic Services</h2>
+    <p style="text-align:center; max-width:900px; margin:auto;">
+      At Ayupathya, we blend time-honored Ayurvedic knowledge with modern health needs.
+      Our services are designed to promote holistic wellness through personalized guidance.
+    </p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>Online Consultation</h3>
+        <p>Consult directly with <strong>Dr. Pranav Kumar</strong> through a secure video platform.</p>
+      </div>
+      <div class="service-card">
+        <h3>Offline Consultation</h3>
+        <p>Visit our Lakhisarai wellness center for in-person consultation and assessment.</p>
+      </div>
+      <div class="service-card">
+        <h3>Customized Diet Plans</h3>
+        <p>Tailored plans based on your dosha (body type), health condition, and Ayurvedic principles.</p>
+      </div>
+      <div class="service-card">
+        <h3>Workshops & Camps</h3>
+        <p>We organize awareness camps and group-based workshops to spread Ayurvedic wisdom.</p>
+      </div>
+      <div class="service-card">
+        <h3>Corporate Wellness</h3>
+        <p>Workplace wellness programs focusing on diet, lifestyle, and stress management.</p>
+      </div>
+      <div class="service-card">
+        <h3>Product Guidance</h3>
+        <p>Learn the right way to integrate Ayupathya products into your daily diet for best results.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h3>Who We Serve</h3>
+      <p><strong>Individuals</strong> – seeking sustainable health through Ayurveda.</p>
+      <p><strong>Families</strong> – aiming to improve daily food and lifestyle habits.</p>
+      <p><strong>Corporate Teams</strong> – building employee health and productivity.</p>
+      <p><strong>Communities</strong> – through village camps and educational drives.</p>
+    </div>
+
+    <h3 class="section-title">How Our Consultation Works</h3>
+    <div class="process-step"><strong>Step 1:</strong> Book an appointment online or offline.</div>
+    <div class="process-step"><strong>Step 2:</strong> Dosha analysis and lifestyle evaluation.</div>
+    <div class="process-step"><strong>Step 3:</strong> Personalized plan including diet & routine.</div>
+    <div class="process-step"><strong>Step 4:</strong> Follow-up for long-term wellness.</div>
+
+    <h3 class="section-title">Success Stories</h3>
+    <div class="testimonial">
+      <p>"Ayupathya's custom plan improved my digestion and energy within a month!" <br>– Rekha Devi</p>
+    </div>
+    <div class="testimonial">
+      <p>"Our office wellness program with Ayupathya reduced stress and boosted productivity!" <br>– HR Manager, SmallTech Pvt Ltd</p>
+    </div>
+
+    <div class="cta">
+      <h2>Ready to Begin Your Wellness Journey?</h2>
+      <p>Book a consultation or collaborate with us to bring Ayurveda to your company or community.</p>
+      <a href="contact.html">Get in Touch</a>
+    </div>
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Ayupathya Aahar Pvt Ltd</h3>
+        <p>
+          Promoting health through Ayurveda-based nutrition and natural food products.
+          Our goal is to restore balance and vitality using ancient wisdom and modern methods.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="consultation.html">Consultation</a></li>
+          <li><a href="ayupathyalifestyle.html">Lifestyle Course</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+    <footer class="footer">
+  <div class="footer-container">
+    
+    
+
+    <div class="footer-column">
+      <h4>Contact Us</h4>
+      <p>Email: <a href="mailto:contact@ayupathya.com">contact@ayupathya.com</a></p>
+      <p>Ward no.22 , Barhiya Lakhisarai, Bihar, India 811302</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/ayupathya_aahar_pvt.ltd" target="_blank"><img src="image/insta.png" alt="Instagram" /></a>
+        <a href="https://www.youtube.com/@AyupathyaAaharPvtLtd" target="_blank"><img src="image/yt.png" alt="YouTube" /></a>
+      </div>
+    </div>
+
+    <!-- New Legal Column -->
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ayupathya Aahar Pvt Ltd. All rights reserved.</p>
+  </div>
+   <script>
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("show");
+    }
+  </script>
+
+  <!-- ======== WHATSAPP FLOATING BUTTON ======== -->
+  <a href="https://wa.me/919910232254" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat" />
+  </a>
+</footer>
+</body>
+</html>

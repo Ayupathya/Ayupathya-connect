@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Consultation – Ayupathya Aahar Pvt Ltd</title>
+  <style>
+    /* ======== BASIC RESETS ======== */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f5fff7; color: #333; }
+
+    /* ======== HEADER ======== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: linear-gradient(90deg, #0A760A, #3DA756);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .brand-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-area img {
+      height: 60px;
+      border-radius: 10px;
+      background: white;
+      padding: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    .brand-area img:hover {
+      transform: scale(1.05);
+    }
+
+    .brand-text {
+      color: white;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #ffeb99;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, nav ul li a.active {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ======= Mobile Menu ======= */
+    @media (max-width: 768px) {
+      nav ul { 
+        display: none;
+        flex-direction: column;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        right: 0;
+        top: 70px;
+        width: 100%;
+        text-align: center;
+      }
+      nav ul.show { display: flex; }
+      .menu-toggle { display: block; color: white; font-size: 26px; cursor: pointer; }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle { display: none; }
+    }
+nav ul li a {
+    color: #000000; /* dark green text for mobile menu */
+    font-weight: 600;
+    padding: 12px 0;
+    display: block;
+  }
+  nav ul li a:hover {
+    background: #e0f4e0; /* optional light hover effect */
+  }
+    /* ======== MAIN CONTENT ======== */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: linear-gradient(135deg, #ffffff, #e7f7ea);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .hero-content h2 {
+      text-align: center;
+      color: #0A760A;
+      margin-bottom: 15px;
+    }
+
+    .hero-content p {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .hero-image {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 650px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .consultation-info {
+      background: #e0f2f1;
+      padding: 15px;
+      border-left: 5px solid #009688;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    form input, form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #0A760A;
+      margin-top: 10px;
+    }
+
+    .btn-submit {
+      background: #0A760A;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      background: #3DA756;
+    }
+
+    /* ======== FOOTER ======== */
+    .footer {
+      background: linear-gradient(to right, #0A760A, #3DA756);
+      color: white;
+      padding: 40px 20px 20px;
+      text-align: left;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-column h3, .footer-column h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      display: inline-block;
+      padding-bottom: 6px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li a {
+      color: #f9f9f9;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-column ul li a:hover {
+      color: #ffe082;
+    }
+
+    .social-icons a img {
+      width: 28px;
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+      border-radius: 50%;
+      background: white;
+      padding: 4px;
+    }
+
+    .social-icons a img:hover {
+      transform: scale(1.2);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 30px;
+      padding-top: 15px;
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+
+    /* ======== WHATSAPP BUTTON ======== */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .whatsapp-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-button img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======== HEADER ======== -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-area">
+        <img src="image/apalogo.jpg" alt="Ayupathya Logo" />
+        <div class="brand-text">
+          AYUPATHYA
+          <span>Conquering Health</span>
+        </div>
+      </div>
+
+      <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+
+      <nav>
+        <ul id="navMenu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="consultation.html" class="active">Consultation</a></li>
+          <li><a href="ayupathyalifestyle.html">Lifestyle Course</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======== MAIN SECTION ======== -->
+  <main>
+    <div class="hero-image">
+      <img src="image/online-consultation.jpg" alt="Ayupathya Consultation" />
+    </div>
+
+    <div class="hero-content">
+      <h2>Online Consultation</h2>
+      <p>Connect live with <strong>Dr. Pranav Kumar</strong> and receive personalized Ayurvedic advice from your home.</p>
+
+     <section class="consultation-info">
+  <h3>🔗 Live Consultation Access</h3>
+  <p>Enter your access code to join the consultation:</p>
+  <input type="password" id="accessCode" placeholder="Enter access code" />
+  <button onclick="checkCode()">Submit</button>
+  
+  <p id="linkContainer" style="display:none; margin-top:10px;">
+    <strong>Meet Link:</strong> 
+    <a href="https://meet.google.com/cxv-bzkt-vro" target="_blank" style="color:#00796b;">Join Google Meet</a>
+  </p>
+  <p id="errorMsg" style="color:red; display:none;">Invalid code. Please try again.</p>
+</section>
+
+<script>
+  function checkCode() {
+    const userCode = document.getElementById('accessCode').value;
+    const correctCode = "AYUPATHYA123"; // Replace with the code you provide to the customer
+
+    if(userCode === correctCode) {
+      document.getElementById('linkContainer').style.display = 'block';
+      document.getElementById('errorMsg').style.display = 'none';
+    } else {
+      document.getElementById('errorMsg').style.display = 'block';
+      document.getElementById('linkContainer').style.display = 'none';
+    }
+  }
+</script>
+ <form action="https://formsubmit.co/ayupathya2023@gmail.com" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="number" name="age" placeholder="Age" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" name="mobile" placeholder="Mobile Number" required />
+        <input type="text" name="address" placeholder="City / Address" required />
+        <textarea name="symptoms" placeholder="Describe your symptoms or health concerns"></textarea>
+
+        <label><strong>Upload Your Prescription:</strong></label>
+        <input type="file" name="prescription" accept=".pdf,.jpg,.jpeg,.png" />
+
+        <label><strong>Upload Investigation Reports (if any):</strong></label>
+        <input type="file" name="investigation" accept=".pdf,.jpg,.jpeg,.png" />
+
+        <label><strong>Upload Your Photo:</strong></label>
+        <input type="file" name="photo" accept=".jpg,.jpeg,.png" required />
+
+        <label><strong>Preferred Consultation Date & Time:</strong></label>
+        <input type="datetime-local" name="preferred_time" required />
+
+        <button type="submit" class="btn-submit">Book Consultation</button>
+      </form>
+
+      <p style="margin-top: 10px; font-size: 0.9rem; color: #444;">
+        *You’ll receive your Google Meet link via email after form verification.
+      </p>
+    </div>
+  </main>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Ayupathya Aahar Pvt Ltd</h3>
+        <p>
+          Promoting health through Ayurveda-based nutrition and natural food products.
+          Our goal is to restore balance and vitality using ancient wisdom and modern methods.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="consultation.html">Consultation</a></li>
+          <li><a href="ayupathyalifestyle.html">Lifestyle Course</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+  <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+      <h4>Contact Us</h4>
+      <p>Email: <a href="mailto:contact@ayupathya.com">contact@ayupathya.com</a></p>
+      <p>Ward no.22 , Barhiya Lakhisarai, Bihar, India 811302</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/ayupathya_aahar_pvt.ltd" target="_blank"><img src="image/insta.png" alt="Instagram" /></a>
+        <a href="https://www.youtube.com/@AyupathyaAaharPvtLtd" target="_blank"><img src="image/yt.png" alt="YouTube" /></a>
+      </div>
+    </div>
+
+    <!-- New Legal Column -->
+    <div class="footer-column">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Ayupathya Aahar Pvt Ltd. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <!-- ======== SCRIPT ======== -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("navMenu").classList.toggle("show");
+    }
+  </script>
+
+  <!-- ======== WHATSAPP FLOATING BUTTON ======== -->
+  <a href="https://wa.me/919910232254" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat" />
+  </a>
+
+</body>
+</html>
